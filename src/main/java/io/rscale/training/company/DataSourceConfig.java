@@ -38,13 +38,14 @@ public class DataSourceConfig extends AbstractCloudConfig {
 		boolean flag = false;
 		try {
 			driverName = dataSource.getConnection().getMetaData().getDriverName();
-			if (driverName.equalsIgnoreCase("mysql")){
+			if (driverName.startsWith("MySql")){
 				flag = true;
 			}
 			System.out.println(">>>>>>>>>>>" + driverName);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		System.out.println(">>>>>>>>>>>isMySQL: " + flag);
 		return flag;
 		
 	}
