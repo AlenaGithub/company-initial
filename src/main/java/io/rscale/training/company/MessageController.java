@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class MessageController {
 	
-	public MessageController(){
-		System.out.println("message default is: " + message);
-	}
-
-    @Value("${message:Hello default}")
+	
+    @Value("${message:This is default}")
     private String message;
 
     @RequestMapping("/message")
