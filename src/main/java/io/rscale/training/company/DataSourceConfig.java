@@ -21,8 +21,9 @@ public class DataSourceConfig extends AbstractCloudConfig {
 
 	@Bean
 	public DataSource dataSource() throws Exception {
+		DataSource dataSource = null;
 
-		DataSource dataSource = cloud().getSingletonServiceConnector(DataSource.class, null);
+		dataSource = cloud().getSingletonServiceConnector(DataSource.class, null);
 		if (!isMySQL(dataSource)) {
 			logger.error("MySQL required when running cloud profile.");
 			throw new UnsatisfiedDependencyException("javax.sql.DataSource", "javax.sql.DataSource",
@@ -38,14 +39,14 @@ public class DataSourceConfig extends AbstractCloudConfig {
 		boolean flag = false;
 		try {
 			driverName = dataSource.getConnection().getMetaData().getDriverName();
-			if (driverName.startsWith("MySql")){
+			if (driverName.startsWith("MySQL")){
 				flag = true;
 			}
 			System.out.println(">>>>>>>>>>>" + driverName);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println(">>>>>>>>>>>isMySQL: " + flag);
+
 		return flag;
 		
 	}
