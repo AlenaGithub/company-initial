@@ -6,3 +6,4 @@ management:
 security:
   basic:
     enabled: false
+ 
