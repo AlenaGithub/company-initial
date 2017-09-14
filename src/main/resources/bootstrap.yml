@@ -13,4 +13,5 @@ spring:
     name: company
   cloud:
     config:
-      uri: ${vcap.services.configserver-service.credentials.url}
+      uri: https://alena:alena123@configserver-inarticulate-executiveness.cfapps.io 
+      #${vcap.services.configserver-service.credentials.url}
